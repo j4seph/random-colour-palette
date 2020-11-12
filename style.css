@@ -135,10 +135,6 @@ svg {
 	cursor: pointer;
 }
 
-.panel button:hover {
-	color: blue;
-}
-
 .panel p {
 	font-size: 1.3rem;
 	font-family: "Manrope", sans-serif;
