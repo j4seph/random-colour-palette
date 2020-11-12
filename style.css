@@ -1,0 +1,319 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Muli", sans-serif;
+	background-color: rgb(37, 29, 41);
+}
+
+.heading {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 60%;
+	margin: auto;
+}
+
+.heading h1 {
+	text-align: center;
+	font-family: "Alice", serif;
+	font-size: 45px;
+	font-weight: 400;
+	letter-spacing: -2px;
+	color: white;
+}
+
+.heading p {
+	font-size: 1.2rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	width: 450px;
+	margin: 20px auto;
+	color: white;
+}
+
+button {
+	font-family: "Muli", sans-serif;
+}
+
+path,
+i,
+svg {
+	pointer-events: none;
+}
+
+.colours {
+	min-height: 40vh;
+	display: flex;
+	color: rgb(212, 212, 212);
+	width: 90%;
+	margin: auto;
+}
+
+.colour {
+	height: 60vh;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	position: relative;
+	overflow: hidden;
+}
+
+.colour h2 {
+	font-size: 1.8rem;
+	cursor: pointer;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+}
+
+.sliders {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	bottom: 0%;
+	background: #f6f6f6;
+	opacity: 0;
+	color: black;
+	padding: 1.5rem;
+	width: 100%;
+	pointer-events: none;
+	transform: translateY(100px);
+	transition: all 0.5s ease-in-out;
+	font-size: 1.2rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	border: 1px solid grey;
+}
+
+.sliders.active {
+	opacity: 1;
+	transform: translateY(0px);
+	pointer-events: all;
+}
+
+.sliders button,
+.close-save,
+.close-library {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 10px;
+	padding-right: 10px;
+	border: none;
+	background: transparent;
+	color: grey;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.controls {
+	display: flex;
+	flex-direction: column;
+}
+
+.panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 20vh;
+	padding-bottom: 5%;
+	padding-top: 3%;
+}
+
+.panel button {
+	font-size: 1.8rem;
+	margin: 1rem;
+	padding: 0rem 2rem;
+	color: white;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.panel button:hover {
+	color: blue;
+}
+
+.panel p {
+	font-size: 1.3rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	color: white;
+}
+
+.library-panel,
+.generate-panel,
+.save-panel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.adjust,
+.lock {
+	font-size: 2rem;
+	border: none;
+	background: none;
+	cursor: pointer;
+	margin: 2rem 0rem;
+}
+
+/* sliders */
+
+input[type="range"] {
+	-webkit-appearance: none;
+	margin: 1rem 0rem;
+	width: 100%;
+	position: relative;
+	border-radius: 1rem;
+	cursor: pointer;
+}
+
+.copy-container,
+.save-container,
+.library-container {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	background: rgb(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.75s ease-in-out;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup {
+	background: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 2rem;
+	transition: transform 0.75s ease;
+	transform: translateY(-2rem);
+	min-width: 20%;
+	min-height: 13vh;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.copy-popup.active,
+.save-container.active,
+.library-container.active {
+	transform: translateY(0rem);
+}
+
+.save-popup h4,
+.library-popup h4 {
+	font-size: 2rem;
+	padding: 2rem;
+	font-family: "Alice", serif;
+	font-size: 45px;
+	font-weight: 400;
+	letter-spacing: -2px;
+}
+
+.save-name {
+	font-size: 1.4rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+}
+
+.close-save,
+.close-library {
+	border-top-right-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+	padding: 1.3rem;
+}
+
+.submit-save {
+	margin: 1.5rem;
+	padding: 0.5rem;
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.library-popup {
+	min-width: 40%;
+	padding: 1rem;
+	justify-content: flex-start;
+	overflow-y: scroll;
+	max-height: 70vh;
+}
+
+.custom-palette {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	padding: 2rem;
+}
+
+.small-preview {
+	display: flex;
+	flex: 1;
+}
+
+.custom-palette h4 {
+	flex: 1;
+	font-size: 1.8rem;
+}
+
+.small-preview div {
+	height: 5rem;
+	flex: 1;
+}
+
+.pick-palette-button {
+	height: 5rem;
+	border: none;
+	padding: 1rem;
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	background: none;
+}
+
+.clear-palettes {
+	border: none;
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-family: "Manrope", sans-serif;
+	font-weight: 300;
+	background: none;
+}
+
+@media only screen and (max-width: 700px) {
+	.colours {
+		height: 2000px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.panel {
+		height: 70vh;
+		display: flex;
+		flex-direction: column;
+	}
+}
